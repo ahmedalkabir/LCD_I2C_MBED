@@ -5,8 +5,6 @@ void LCD_I2C_MBED::expander_writer(int data)
 {
     _i2c->lock();
 
-    // int fdata = data | _lcd_backlight;
-    // int sz = sprintf(_buffer, "%d", fdata);
     _buffer[0] = static_cast<char>(data | _lcd_backlight);
     _i2c->write((_address << 1), _buffer, 1);
 
